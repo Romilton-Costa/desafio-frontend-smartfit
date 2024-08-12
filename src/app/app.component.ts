@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(private unitService: GetUnitsService){}
 
   onSubmit(){
-    this.unitService=this.unitService.getFilteredUnits();
+    this.unitsList = this.unitService.getFilteredUnits();
     this.showList.next(true);
   }
 }

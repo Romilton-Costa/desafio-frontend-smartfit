@@ -9,21 +9,20 @@ import { GetUnitsService } from '../../services/get-units.service';
   styleUrl: './forms.component.scss'
 })
 export class FormsComponent implements OnInit {
-  @Output() submitEvent= new EventEmitter();
-  results:Location[] = [];
+  @Output() submitEvent = new EventEmitter();
+  results: Location[] = [];
   filteredResults: Location[] = [];
-  formGroup!:FormGroup;
+  formGroup!: FormGroup;
 
   constructor(
-    private formBuider:FormBuilder,
-    private unitService:GetUnitsService,
-    private filterUnitsService:FilterUnitsService
-  ){}
+    private formBuilder: FormBuilder,
+    private unitService: GetUnitsService,
+    private filterUnitsService: FilterUnitsService) { }
 
-  ngOnInit():void{
-    this.formGroup=this.formBuider.group({
-      hour:'',
-      showClosed:true
+  ngOnInit(): void {
+    this.formGroup = this.formBuilder.group({
+      hour: '',
+      showClosed: true
     })
     this.unitService.getAllUnits().subscribe(data => {
       this.results = data;
@@ -31,7 +30,7 @@ export class FormsComponent implements OnInit {
     });
   }
 
-  onSubmit():void{
+  onSubmit(): void {
     let { showClosed, hour } = this.formGroup.value
     this.filteredResults = this.filterUnitsService.filter(this.results, showClosed, hour);
     this.unitService.setFilteredUnits(this.filteredResults);
@@ -42,4 +41,5 @@ export class FormsComponent implements OnInit {
   onClean(): void {
     this.formGroup.reset();
   }
+
 }
