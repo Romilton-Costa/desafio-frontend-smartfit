@@ -29,7 +29,7 @@ O layout da aplicação foi baseado nos materiais disponibilizados, incluindo de
 Para executar a aplicação localmente, siga os passos abaixo:
 
 1. Clone este repositório:
-     ```bash
+```bash
   git clone https://github.com/Romilton-Costa/desafio-frontend-smartfit.git
   cd desafio-frontend-smartfit
 
