@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UnitsResponse } from '../types/units-reponse.interface';
+import { Location } from '../types/location.interface';
 
 @Injectable({
   providedIn: 'root'
